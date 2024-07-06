@@ -55,15 +55,13 @@ public class MissPuchTC  extends CommonFunctions{
 	 
 	Properties properties = new Properties();
 	properties.load(stream);
-//	try {
-
-		
 	
+ //for give the default value
 	
-		Faker faker = new Faker();             //for give the default value
- 		test = reports.createTest("Testcase for MIssPuchPolicy Page ");
+		Faker faker = new Faker();          
+ 		test = reports.createTest("Testcase for MissPuchPolicy Page ");
 		PageFactory.initElements(driver,MissPunchObj.class);
-		test.info("<b><font color = 'purple'>Test case-1 Verify the country page is displayed </b>");
+		test.info("<b><font color = 'purple'>Test case-1 Verify the Miss Puch page is displayed </b>");
 		
 		MissPunchObj.settings.click();
 		test.pass("Settings Menu clicked");
@@ -75,28 +73,29 @@ public class MissPuchTC  extends CommonFunctions{
  
 	        } else {
 	            test.fail("<font color='red'>MissPuchPOlicy page is not displayed</font>",MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot(driver,screenShot)).build());
+	  
 	        }
  
 		
-	    test.info("<b><font color = 'purple'>Test case-2 Check the Create Workpolicy page is displayed </b>");
+		
+		
+		
+	   test.info("<b><font color = 'purple'>Test case-2 Check the Create Workpolicy page is displayed </b>");
 
 		MissPunchObj.CreateWorkPol.click();
 		test.pass("Creatework policy option clicked");
 //		Thread.sleep(2000);
-		
+	
+		//scroll down the window
 		JavascriptExecutor js = (JavascriptExecutor) driver; 
 		 js.executeScript("window.scrollBy(0,1000)"); 
 		 Thread.sleep(4000);
-		 
-		 
 		MissPunchObj.MisspuchOpt.click();
 		test.pass("Creatework policy option clicked");
 		Thread.sleep(1000);
 		
-	
 		
-		
-		 test.info("<b><font color = 'purple'>Test case-3 Check the Create Misspuch  page is displayed </b>");
+	test.info("<b><font color = 'purple'>Test case-3 Check the Create Misspuch  page is displayed </b>");
 		 if(MissPunchObj.MisspuchHead.getText().equals("Miss Punch Policy")) {
 				test.pass("Miss Puch Policy  window is displayed.The heading is :"+MissPunchObj.MisspuchHead.getText());
 			}else {
@@ -104,6 +103,10 @@ public class MissPuchTC  extends CommonFunctions{
 			}
 
 	
+		 
+		 
+		 
+		 
 		    MissPunchObj.policyName.sendKeys(properties.getProperty("PolicyName"));
 			test.pass("Policyname entred successfully");
 //			Thread.sleep(2000);
@@ -113,7 +116,8 @@ public class MissPuchTC  extends CommonFunctions{
 		            test.pass("Checkbox clicked successfully");
 		        }
 		        
-//		        Thread.sleep(1000);
+//		    
+			  Thread.sleep(1000);
 		    
 		        MissPunchObj.mispuchNo.sendKeys(properties.getProperty("MissTime"));
 		        test.pass("MissPuch value entred successfully");
@@ -130,7 +134,8 @@ public class MissPuchTC  extends CommonFunctions{
 			        	
 			        	MissPunchObj.DeductionList.get(i).click();
 			        	
-			            break;
+			
+			        	break;
 
 			          
 		       }
@@ -143,7 +148,8 @@ public class MissPuchTC  extends CommonFunctions{
 		        MissPunchObj.AddrangeOpt.click();
 		        test.pass("Deduction DroprDown clicked successfully");
 		  
-		     
+		
+		        
 		        MissPunchObj.morethanOpt.sendKeys(properties.getProperty("Puchmissmore"));
 		        MissPunchObj.morethanOpt.sendKeys(Keys.ENTER);
 		        test.pass("Miss punch occur time  DroprDown clicked successfully");
@@ -163,6 +169,7 @@ public class MissPuchTC  extends CommonFunctions{
 			        	
 			            break;
 
+			            
 			          
 		       }
 			
@@ -228,17 +235,13 @@ public class MissPuchTC  extends CommonFunctions{
 					}
                 
                 
-//check box		        
-				  if (!MissPunchObj.checkbox.isSelected()) {
-					  MissPunchObj.checkbox.click();
-			            test.pass("Checkbox clicked successfully");
-			        }
-			        Thread.sleep(2000);
+////check box		        
+//				  if (!MissPunchObj.checkbox.isSelected()) {
+//					  MissPunchObj.checkbox.click();
+//			            test.pass("Checkbox clicked successfully");
+//			        }
+//			        Thread.sleep(2000);
 
-//remove all
-			        MissPunchObj.RemoveallOpt.click();
-			        test.pass("Remove All Option clicked successfully");
-			        Thread.sleep(4000);
 
 		
 //search Empolyee
@@ -259,41 +262,42 @@ public class MissPuchTC  extends CommonFunctions{
 				        MissPunchObj.SearchEmp.clear();
 //				        Thread.sleep(1000);
 
-//Search Department		
-				        MissPunchObj.Department.click();
-				        test.pass("Department Option clicked successfully");
-				        
-				        
-				        MissPunchObj.SearchDep.sendKeys(properties.getProperty("deprtSearch"));
-				        test.pass(" Send the department value successfully");
-				        Thread.sleep(1000);
-
-				        if (!MissPunchObj.checkbox.isSelected()) {
-							  MissPunchObj.checkbox.click();
-					            test.pass("Checkbox clicked successfully");
-					           
-					        }
-				        MissPunchObj.SearchDep.sendKeys(Keys.CONTROL + "a");
-						MissPunchObj.SearchDep.sendKeys(Keys.DELETE);
-//						
-				        MissPunchObj.SearchDep.clear();
-					        
-//Search Location	    					        
-					        MissPunchObj.Location.click();
-					        Thread.sleep(3000);
-					        if (!MissPunchObj.checkbox.isSelected()) {
-								  MissPunchObj.checkbox.click();
-						            test.pass("Checkbox clicked successfully");
-						        }
-						        Thread.sleep(1000);
-					        
-
-				
-						        
-					        
-					       MissPunchObj.SaveContbtn.click();
-					       test.pass("saved  successfully");
-					       Thread.sleep(4000);
+////Search Department		
+//				        MissPunchObj.Department.click();
+//				        test.pass("Department Option clicked successfully");
+//				        
+//				        
+//				        MissPunchObj.SearchDep.sendKeys(properties.getProperty("deprtSearch"));
+//				        test.pass(" Send the department value successfully");
+//				        Thread.sleep(1000);
+//
+//				        if (!MissPunchObj.checkbox.isSelected()) {
+//							  MissPunchObj.checkbox.click();
+//					            test.pass("Checkbox clicked successfully");
+//					           
+//					        }
+//				        MissPunchObj.SearchDep.sendKeys(Keys.CONTROL + "a");
+//						MissPunchObj.SearchDep.sendKeys(Keys.DELETE);
+////						
+//				        MissPunchObj.SearchDep.clear();
+//					        
+////Search Location	    					        
+//					        MissPunchObj.Location.click();
+//					        Thread.sleep(3000);
+//					        if (!MissPunchObj.checkbox.isSelected()) {
+//								  MissPunchObj.checkbox.click();
+//						            test.pass("Checkbox clicked successfully");
+//						        }
+//						        Thread.sleep(1000);
+//					        
+//
+//				
+//		
+//						        
+//					        
+//					       MissPunchObj.SaveContbtn.click();
+//					       test.pass("saved  successfully");
+//					       Thread.sleep(4000);
 //Update		
 					       test.info("<b><font color = 'purple'>Test case-5  Verify the Update Miss Puch Policy functionality  </b>");
 					       MissPunchObj.DashSerch.sendKeys(properties.getProperty("PolicyName"));
@@ -304,12 +308,15 @@ public class MissPuchTC  extends CommonFunctions{
 					       Thread.sleep(4000);
 					       
 					        MissPunchObj.mispuchNo.sendKeys(properties.getProperty("MisstimeUp"));
+				
 					        MissPunchObj.mispuchNo.sendKeys(Keys.CONTROL + "a");
 							MissPunchObj.mispuchNo.sendKeys(Keys.DELETE);
 //							
 					        MissPunchObj.mispuchNo.clear();
 					        Thread.sleep(1000);
+				
 					        
+			
 					        MissPunchObj.SaveCont.click();
 					        MissPunchObj.SaveContbtn.click();
 						   test.pass("Update the policy  successfully");
@@ -326,6 +333,7 @@ public class MissPuchTC  extends CommonFunctions{
 					       
    
 }
+
 
 
  

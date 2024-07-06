@@ -30,6 +30,7 @@ public class MissPunchObj {
 		
 		@FindBy (xpath="//input[@class='ant-checkbox-input']")
 		public static WebElement checkbox;
+		
 		@FindBy (xpath="//input[@placeholder ='Enter If miss punch occurs more than']")
 		public static WebElement mispuchNo;
 		
@@ -92,7 +93,7 @@ public class MissPunchObj {
 		public static WebElement SaveCont;
 		
 		
-		@FindBy (xpath="//h1[text()='Assign Policy']")
+		@FindBy (xpath="//div[text()='Assign Policy']")
 		public static WebElement AssignpolicyHed;
 		
 		@FindBy (xpath="//p[@class='mb-0 ']")
@@ -130,6 +131,8 @@ public class MissPunchObj {
 		
 		@FindBy (xpath="(//button[contains(@class, 'hover:bg-primaryalpha')])[2]")
 		public static WebElement DeletBtnmis;
+		
+		
 		
 		
 		

@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Testcases.MissPuchTC">
+      <class name="Testcases.OverTimeTC">
         <methods>
+          <include name="eventlist"/>
+          <include name="main"/>
           <include name="report"/>
           <include name="reportflush"/>
-          <include name="main"/>
           <include name="close"/>
-          <include name="eventlist"/>
         </methods>
-      </class> <!-- Testcases.MissPuchTC -->
+      </class> <!-- Testcases.OverTimeTC -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
